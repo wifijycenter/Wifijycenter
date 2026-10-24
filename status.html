@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07070a">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<title>JY CENTER — Vous êtes connecté</title>
+<link rel="icon" href="/img/logo.jpg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="hero small">
+  <img class="logo" src="/img/logo.jpg" alt="JY CENTER">
+</header>
+
+<main class="wrap">
+  <section class="card ok">
+    <div class="badge">✓</div>
+    <h1>Félicitations !</h1>
+    <p class="sub">Vous êtes connecté au Wi-Fi JY CENTER. Bonne navigation !</p>
+
+    <div class="big">
+      <small>Temps restant</small>
+      <strong id="left">…</strong>
+    </div>
+
+    <div class="rows">
+      <div class="row"><span>Forfait actif</span><span id="plan">…</span></div>
+      <div class="row" id="expireRow"><span>Expire le</span><span id="expire">—</span></div>
+      <div class="row"><span>Code / Utilisateur</span><span id="user">—</span></div>
+    </div>
+
+    <div class="err" id="end" hidden>Votre forfait est terminé. Pour continuer, achetez un nouveau forfait.</div>
+
+    <div class="stack">
+      <form action="$(link-logout)" method="post">
+        <input type="hidden" name="erase-cookie" value="on">
+        <button class="btn" type="submit">SE DÉCONNECTER</button>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer>
+  Besoin d'aide ? Appelez-nous<br>
+  <a id="telLink" href="tel:0749415409">0749415409</a>
+</footer>
+
+<!-- Données réelles de la session, fournies par le routeur -->
+<div id="data" hidden data-user="$(username)" data-left="$(session-time-left)" data-uptime="$(uptime)"></div>
+
+<script src="/js/config.js"></script>
+<script src="/js/status.js"></script>
+<script>
+(function(){var t=document.getElementById('telLink'),c=window.JY;if(t&&c){t.href='tel:'+c.telephone;t.textContent=c.telephone;}})();
+</script>
+</body>
+</html>

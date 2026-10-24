@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07070a">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<title>JY CENTER — Erreur</title>
+<link rel="icon" href="/img/logo.jpg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+<header class="hero small">
+  <img class="logo" src="/img/logo.jpg" alt="JY CENTER">
+</header>
+<main class="wrap">
+  <section class="card ok">
+    <div class="badge bad">!</div>
+    <h1>Un problème est survenu</h1>
+    <p class="sub" id="msg" data-error="$(error)"></p>
+    <a class="btn" href="$(link-login)">RETOUR À LA CONNEXION</a>
+  </section>
+</main>
+<footer>
+  Besoin d'aide ? Appelez-nous<br>
+  <a href="tel:0749415409">0749415409</a>
+</footer>
+<script src="/js/config.js"></script>
+<script src="/js/portal.js"></script>
+<script>
+var m=document.getElementById('msg');
+m.textContent=window.jyErreur(m.getAttribute('data-error'))||'Une erreur est survenue. Retournez à la page de connexion.';
+</script>
+</body>
+</html>

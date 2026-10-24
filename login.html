@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#07070a">
+<meta http-equiv="pragma" content="no-cache">
+<meta http-equiv="expires" content="-1">
+<title>JY CENTER — Connexion Wi-Fi</title>
+<link rel="icon" href="/img/logo.jpg">
+<link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<header class="hero">
+  <img class="logo" src="/img/logo.jpg" alt="JY CENTER — Qualité, Confiance, Satisfaction">
+  <p>Bienvenue sur le Wi-Fi JY CENTER</p>
+</header>
+
+<!-- Annonces et produits à vendre (images : /img/pub1.jpg ...) -->
+<section class="ads" id="adsZone" aria-label="Annonces et produits à vendre">
+  <span class="lbl">À vendre • Annonces</span>
+  <div class="track" id="adsTrack"></div>
+</section>
+
+<main class="wrap">
+
+  <!-- Connexion -->
+  <section class="card">
+    <div class="tabs" role="tablist">
+      <button type="button" class="tab" id="tabCode" role="tab" aria-selected="true"
+              data-error="$(error)" data-user="$(username)">CODE WIFI</button>
+      <button type="button" class="tab" id="tabAcc" role="tab" aria-selected="false">COMPTE</button>
+    </div>
+
+    <div class="err" id="errBox" role="alert" hidden></div>
+
+    <div id="panelCode" role="tabpanel">
+      <form id="formCode" autocomplete="off" novalidate>
+        <label for="code">Code Wi-Fi</label>
+        <input type="text" id="code" autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Saisissez votre code">
+        <button class="btn" type="submit">CONNEXION</button>
+      </form>
+    </div>
+
+    <div id="panelAcc" role="tabpanel" hidden>
+      <form id="formAcc" autocomplete="on" novalidate>
+        <label for="user">Nom d'utilisateur</label>
+        <input type="text" id="user" autocomplete="username" autocapitalize="off" autocorrect="off" spellcheck="false" placeholder="Nom d'utilisateur">
+        <label for="pass">Mot de passe</label>
+        <input type="password" id="pass" autocomplete="current-password" placeholder="Mot de passe">
+        <button class="btn" type="submit">CONNEXION</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Forfaits -->
+  <section class="card">
+    <h2>Forfaits Wi-Fi</h2>
+    <table class="tbl">
+      <thead><tr><th>Temps</th><th>Tarif</th><th>Validité</th><th>Payer</th></tr></thead>
+      <tbody id="forfaitsBody"></tbody>
+    </table>
+    <p class="note">Paiement par Orange Money (tout réseau) ou en espèces. Votre code Wi-Fi vous est envoyé après confirmation du paiement.</p>
+    <a class="btn ghost abo" id="btnAbo" target="_blank" rel="noopener" href="#">DEMANDER UN ABONNEMENT PERSONNEL</a>
+  </section>
+</main>
+
+<footer>
+  Besoin d'aide ? Appelez-nous<br>
+  <a id="telLink" href="tel:0749415409">0749415409</a>
+</footer>
+
+<!-- Formulaire réel envoyé au HotSpot MikroTik -->
+<form name="sendin" action="$(link-login-only)" method="post" style="display:none">
+  <input type="hidden" name="username" value="">
+  <input type="hidden" name="password" value="">
+  <input type="hidden" name="dst" value="$(link-orig)">
+  <input type="hidden" name="popup" value="false">
+</form>
+
+<script>
+/* Variables CHAP fournies par le routeur (vides si CHAP désactivé) */
+var JY_CHAP_ID = '$(chap-id)';
+var JY_CHAP_CH = '$(chap-challenge)';
+</script>
+<script src="/md5.js"></script>
+<script src="/js/config.js"></script>
+<script src="/js/portal.js"></script>
+</body>
+</html>
